@@ -1,0 +1,19 @@
+# Executáveis
+*.exe
+
+# Arquivos objeto
+*.o
+*.obj
+
+# Arquivos temporários do Dev-C++
+*.layout
+*.depend
+*.log
+
+# Pastas de build (se existirem)
+bin/
+build/
+dist/
+
+# Arquivos temporários do sistema
+*.tmp
