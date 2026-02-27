@@ -17,3 +17,9 @@ dist/
 
 # Arquivos temporários do sistema
 *.tmp
+
+.idea/
+
+CMakeLists.txt
+
+cmake-build-debug/

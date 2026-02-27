@@ -7,10 +7,10 @@ int main(void){
 	printf("---------- Bem vindo ----------\n\n\n");
 	
 	char frases[6][20] = {"celsius", "fahrenheit", "metros", "quilometros", "segundos", "horas"};
-	char siglas[6][5] = {"° C", "° F", " M", " KM", "s", " H"};
+	char siglas[6][5] = {"oC", "oF", " M", " KM", "s", " H"};
 	
 	while(1){
-		printf("O que você deseja: \n\n");
+		printf("O que voce deseja: \n\n");
 		
 		printf("\t[0] celsius para fahrenheit;\n");
 		printf("\t[1] fahrenheit para celsius;\n");
@@ -30,8 +30,9 @@ int main(void){
 		if(input == 6)break;
 			
 		float value, result;	
+		int contra = (input % 2 == 0) ? input + 1 : input - 1;
 			
-		printf("\n\nEntre com o valor em %s para ser convertido em %s\n\n", frases[input], frases[(input % 2 == 0) ? input - 1 : input + 1]);
+		printf("\n\nEntre com o valor em %s para ser convertido em %s %d\n\n", frases[input], frases[contra], contra);
 		scanf("%f", &value);
 		
 		
@@ -56,7 +57,7 @@ int main(void){
 				break;
 		}
 		
-		printf("%.2f%s em %s eh %.2f%s\n\n", value, siglas[input], frases[(input % 2 == 0) ? input - 1 : input + 1], result, siglas[(input % 2 == 0) ? input - 1 : input + 1]);
+		printf("%.2f%s em %s eh %.2f%s\n\n", value, siglas[input], frases[contra], result, siglas[contra]);
 		
 		printf("Prescione enter para continuar.");
 		scanf("");
