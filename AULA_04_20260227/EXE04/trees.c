@@ -65,6 +65,8 @@ Node * op_to_tree(Node * node, char op){
 }
 
 float calculate(Node * crr){
+    printf("Nodo: %f\n", crr->value.f);
+
     if(crr->left == NULL && crr->right == NULL) {
         float result = crr->value.f;
         free(crr);
