@@ -18,17 +18,19 @@ Node * init_node() {
 }
 
 Node * rotateRight(Node* node){
-    Node * right = node->left->right;
-    node->left->right = node;
-    node->left = right;
+    Node * left = node->left;
+    node->left = left->right;
+    left->right = node;
 
-    return node;
+    return left;
 };
 
 Node * num_to_tree(Node * node, float num){
     Node * new_node = init_node();
 
     new_node->value.f = num;
+
+    printf("New number: %f\n\n", new_node->value.f);
 
     if(node == NULL){
         return new_node;
@@ -37,6 +39,9 @@ Node * num_to_tree(Node * node, float num){
     if(node->left == NULL) node->left = new_node;
 
     if(node->right == NULL) node->right = new_node;
+
+    if(node->value.c == '*' || node->value.c == '/')
+    return rotateRight(node);
 
     return node;
 };
@@ -47,20 +52,15 @@ Node * op_to_tree(Node * node, char op){
 
     new_node->value.c = op;
 
+    printf("New op: %c\n\n", new_node->value.c);
+
     if(node == NULL){
         fprintf(stderr, "Não é possivel começar a conta com um sinal.");
         return NULL;
     }
 
-   if (op == '+' || op == '-'){
-        new_node->left = node;
-        return new_node;
-   }
-
-   if(op == '*' || op == '/'){
-        new_node->left = node;
-        return rotateRight(new_node);
-   }
+    new_node->left = node;
+    return new_node;
 
 }
 

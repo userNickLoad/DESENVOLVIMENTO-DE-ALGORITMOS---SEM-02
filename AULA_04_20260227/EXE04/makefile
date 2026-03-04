@@ -1,13 +1,13 @@
 
 
 all: comp/ main.o trees.o
-	@gcc comp/main.o comp/trees.o -o comp/executavel
+	@gcc -g comp/main.o comp/trees.o -o comp/exec
 
 main.o: comp/ main.c
-	@gcc -c main.c -o comp/main.o
+	@gcc -g -c main.c -o comp/main.o
 
 trees.o: comp/ trees.c  
-	@gcc -c trees.c -o comp/trees.o
+	@gcc -g -c trees.c -o comp/trees.o
 
 
 comp/:

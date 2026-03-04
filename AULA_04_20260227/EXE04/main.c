@@ -19,7 +19,7 @@ int main(void) {
 
     // Organiza operações
     for (int i = 0; i < 100; i++) {
-        if (buff[i] == ' ' || buff[i] == '\0') continue;
+        if (buff[i] == ' ') continue;
 
         if (('0' <= buff[i] && (int) buff[i] <= '9') || buff[i] == '.'){
             if(buff[i] != '.'){
