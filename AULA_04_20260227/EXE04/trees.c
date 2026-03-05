@@ -30,17 +30,20 @@ Node * num_to_tree(Node * node, float num){
 
     new_node->value.f = num;
 
-    printf("New number: %f\n\n", new_node->value.f);
-
     if(node == NULL){
         return new_node;
+    }
+
+    if(node->value.c == '/' && num == 0){
+        fprintf(stderr, "qualquer x tal que x = n/0, com n sendo um numero real, eh indefinido.");
+        return NULL;
     }
 
     if(node->left == NULL) node->left = new_node;
 
     if(node->right == NULL) node->right = new_node;
 
-    if(node->value.c == '*' || node->value.c == '/')
+    if((node->value.c == '*' || node->value.c == '/') && (node->left->left != NULL && node->left->right != NULL))
     return rotateRight(node);
 
     return node;
@@ -51,8 +54,6 @@ Node * op_to_tree(Node * node, char op){
     Node * new_node = init_node();
 
     new_node->value.c = op;
-
-    printf("New op: %c\n\n", new_node->value.c);
 
     if(node == NULL){
         fprintf(stderr, "Não é possivel começar a conta com um sinal.");
@@ -65,7 +66,6 @@ Node * op_to_tree(Node * node, char op){
 }
 
 float calculate(Node * crr){
-    printf("Nodo: %f\n", crr->value.f);
 
     if(crr->left == NULL && crr->right == NULL) {
         float result = crr->value.f;
@@ -81,19 +81,19 @@ float calculate(Node * crr){
     switch (crr->value.c)
     {
     case '+':
-        right += left;
+        left += right;
         break;
 
     case '-':
-        right -= left;
+        left -= right;
         break;
 
     case '*':
-        right *= left;
+        left *= right;
         break;
 
     case '/':
-        right /= left;
+        left /= right;
         break;
     
     default:
@@ -102,5 +102,5 @@ float calculate(Node * crr){
     }
 
     free(crr);
-    return right;
+    return left;
 };

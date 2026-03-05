@@ -11,7 +11,7 @@
       "cwd": "${workspaceFolder}",
       "externalConsole": true,
       "MIMode": "gdb",
-      "miDebuggerPath": "gdb",
+      "miDebuggerPath": "C:/MinGW/bin/gdb.exe",
       "preLaunchTask": "make build"
     }
   ]
