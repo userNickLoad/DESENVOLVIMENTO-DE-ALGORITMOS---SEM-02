@@ -10,7 +10,7 @@ int main(void) {
     printf("Calculadora 3000!\n\n");
     printf("\t - Regras:\n");
     printf("\t\t + As unicas operacoes aceitas sao +, -, * e /\n");
-    printf("\t\t + Caso tenha x / 0, sera invalidada\n\n");
+    printf("\t\t + Caso tenha x / 0 , sera invalidada\n\n");
 
     printf("Coloque a sua expressao: ");
     fgets(buff, sizeof(buff), stdin);
